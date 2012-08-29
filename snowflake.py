@@ -42,7 +42,7 @@ class MtRand:
         for i in range(1, self.N):
             s = (1812433253 * (self.state[i-1] ^ (self.state[i-1] >> 30))+ i)
             self.state.append(s & bitMask)
-        #print self.state[0:10]
+
  
     def setState(self, state):
         """
@@ -93,7 +93,6 @@ class MtRand:
         if not min and not max:
             return num
 
-        #print max,min
         return (min + (num*(max - min + 1)) / (1<<32))
 
     def phpMtRand(self, rmin = None, rmax= None):
@@ -101,7 +100,6 @@ class MtRand:
         as returned by PHP
         """
         num = self.mtRand() >> 1
-        #print bin(num)     
         if not rmin and not rmax:
             return num
         return (rmin + (num*(rmax - rmin + 1)) / (1 <<31))
@@ -120,7 +118,6 @@ class Snowflake:
         self.initialized = False
         
         if not crackerLib:
-            print 'Foofootos'
             return
         self.searchRainbowTableFunc = crackerLib.searchRainbowTable
         self.searchHashOnlineFunc = crackerLib.searchHashOnline
