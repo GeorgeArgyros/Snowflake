@@ -9,8 +9,9 @@ identical. However, under specific circumstances and environments their shapes
 tend to be predictable. For example, the shape of the snowflake is determined 
 broadly by the temperature and humidity at which it is formed.
 
-Snowflake is framework to assist the exploitation of randomness vulnerabilities
-in PHP applications. It helps the implementation of seed recovery attacks. 
+Snowflake is a framework to assist the exploitation of randomness 
+vulnerabilities in PHP applications and in particular, it helps with the 
+implementation of seed recovery attacks. 
 For more information on these attacks check the paper
 "I Forgot Your Password: Randomness Attacks Against PHP Applications"
 
@@ -44,7 +45,12 @@ which is similar with that of the rainbowcrack tool.
 The user creates a user defined hash function (which is application dependent)
 and then compiles that hash function as a shared library, taking care to 
 export the necessary information (see below). The function should take as
-input a 32 bit integer (the seed) and return an arbitrary output (defined as char *).
+input a 32 bit integer (the seed) and return an arbitrary output 
+(defined as char *).
+
+Note that we use the term hash function in a liberal sense  as it is not 
+necessary to have reduction of input length or any other property typically
+associated with such functions (e.g., collision resistance).
 
 Afterwards, snowflake can do the following using this hash function:
 1. Generate rainbow tables for all 2^32 possible seeds.
@@ -126,7 +132,7 @@ snowflake generate 10000000 1000 1 myhashfunction
 
 check the usage menu of snowflake for a detailed explanation for the command.
 
-Notice that because our search space is only 2^32 we not have any particular 
+Notice that because our search space is only 2^32 we do not have any particular
 problem in having a success probability of almost one while keeping the tables 
 moderately small and the chains short. Some parameters follow:
 
@@ -162,7 +168,7 @@ the command:
 snowflake crack hash_func_name target_hash
 
 The cracker is multithreaded and will use a number of threads that is equal to
-the number of CPU cores in the system in order to optimized performance. With
+the number of CPU cores in the system in order to optimize performance. With
 a 2.3 GHz quadcore processor we were able to search all search space for the
 mediawiki hash function in about 20 minutes.
 
@@ -227,8 +233,6 @@ Generates a random number using the PHP Mersenne Twister implementation, again
 giving the option to map the number to a smaller range.
 
 
-
-
 Writing exploits using snowflake
 --------------------------------
 
@@ -261,22 +265,28 @@ For a code tutorial which will better illustrate the process check the mediawiki
 exploit.
 
 
+LICENCE
+-------
+
+This software was written based on research funded by the ERC project CODAMODA
+and is released under the New BSD License.
+
 
 TODO / BUGS / ETC
 -----------------
 
-I think that the tool is quite usable by now. I will probably add multithreaded
+We think that the tool is quite usable by now. We will probably add multithreaded
 search to the rainbow tables in order to improve the search time when complex
-hash functions are used, although with any hash function I have used until now
+hash functions are used, although with any hash function we have used until now
 the search time is under 1 minute.
 
-In addition, this is an ALPHA release. You will probably find a number of bugs
-for which I would be grateful if you reported. However, please report bugs 
-which occur only when the user is not acting maliciously. If someone get owned
-because he opened a malicious rainbow table, so be it! I will probably fix 
-of these bugs too (when I find some spare time...).
+wen addition, this is an ALPHA release. You will probably find a number of bugs
+for which we would be grateful if you reported. However, please report bugs 
+which occur only when the user is not acting maliciously. if someone get owned
+because he opened a malicious rainbow table, so be it! Nevertheless, we will 
+probably fix some of these bugs too (when we find some spare time...).
 
-Finally, If anybody wants to contribute some code too, he is more than welcome 
+Finally, If anybody wants to contribute some code too, she is more than welcome 
 to do so.
 
 Happy exploitation!

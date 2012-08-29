@@ -1,3 +1,9 @@
+"""
+Snowflake framework python API.
+
+Author: George Argyros (argyros.george@gmail.com)
+"""
+
 from ctypes import *
 
 CRACKERLIB_PATH = "../release/snowflake.so"

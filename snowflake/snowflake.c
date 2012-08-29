@@ -1,4 +1,6 @@
 /**
+   Author: George Argyros (argyros.george@gmail.com)
+
    This file contains a lightweight rainbow tables implementation for
    generating randomness exploits against PHP applications. For more
    info check the paper:

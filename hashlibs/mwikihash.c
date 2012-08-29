@@ -1,3 +1,9 @@
+/*
+  Mediawiki 1.18.1 hash function for seed recovery attack.
+
+  Author: George Argyros (argyros.george@gmail.com)
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

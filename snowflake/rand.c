@@ -2,6 +2,8 @@
    This implementation is based on the code taken from the Wikipedia article 
    on multiply with  carry generators:
    (http://en.wikipedia.org/wiki/Multiply-with-carry).
+	
+   Author: George Argyros (argyros.george@gmail.com)
 
    This generator is very fast with a huge period and satisfying randomness
    properties.
