@@ -1,11 +1,10 @@
 #!/usr/bin/python
 
-from sys import argv
-from math import exp
-
-KeySpace  = 1 << 32
-
 """
+Rainbow tables success probability calculator
+
+Author: George Argyros (argyros.george@gmail.com)
+
 Note: 
 implementation is straightforward application of the rainbow tables
 formula, so it might get a bit slow with very large parameters.
@@ -20,6 +19,10 @@ Parameters:
 <keyspace>  : Total number of passwords (default is 2^{32}).
 """
 
+from sys import argv
+from math import exp
+
+KeySpace  = 1 << 32
 
 def main( argc, argv ):
 
