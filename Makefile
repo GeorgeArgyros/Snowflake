@@ -1,4 +1,7 @@
-all: rainbow hashlib
+all: create_dir rainbow hashlib
+
+create_dir:
+	mkdir release
 
 rainbow: 
 	cd snowflake && make
