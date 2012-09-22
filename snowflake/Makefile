@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -O3 -funroll-loops -fomit-frame-pointer -fno-stack-protector -Wall
-LDFLAGS = -lpthread -ldl
+LDFLAGS = -pthread -ldl
 OBJS = rand.o snowflake.o
 
 LIB_CFLAGS = -D__CRACK_LIB__ -fPIC
